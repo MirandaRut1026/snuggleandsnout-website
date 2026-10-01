@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Snuggle &amp; Snout | In-home pet sitting in Fort Worth &amp; Benbrook</title>
-<meta name="description" content="Drop-in visits, dog walks, and overnight stays in your own home. Local, one-person pet sitting serving Fort Worth and Benbrook, Texas.">
+<title>Snuggle &amp; Snout | In-home pet sitting in Fort Worth</title>
+<meta name="description" content="Drop-in visits, dog walks, and overnight stays in your own home. Local, one-person pet sitting serving Fort Worth, Texas.">
 <meta property="og:title" content="Snuggle &amp; Snout — In-home pet sitting">
-<meta property="og:description" content="They stay home. You relax. Drop-in visits, dog walks, and overnight stays in Fort Worth &amp; Benbrook.">
+<meta property="og:description" content="They stay home. You relax. Drop-in visits, dog walks, and overnight stays in Fort Worth.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://snuggleandsnout.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23D42A63'/%3E%3Cg fill='white'%3E%3Ccircle cx='6.8' cy='10.4' r='1.7'/%3E%3Ccircle cx='9.6' cy='6.9' r='1.7'/%3E%3Ccircle cx='14.4' cy='6.9' r='1.7'/%3E%3Ccircle cx='17.2' cy='10.4' r='1.7'/%3E%3Cpath d='M12 11.2c-2.4 0-4.7 2.7-4.7 4.8 0 1.4 1.1 2.2 2.3 2.2.9 0 1.5-.5 2.4-.5s1.5.5 2.4.5c1.2 0 2.3-.8 2.3-2.2 0-2.1-2.3-4.8-4.7-4.8z'/%3E%3C/g%3E%3C/svg%3E">
@@ -20,7 +20,7 @@
   "name": "Snuggle & Snout",
   "description": "In-home pet sitting: drop-in visits, dog walks, and overnight stays.",
   "url": "https://snuggleandsnout.com/",
-  "areaServed": ["Fort Worth, TX", "Benbrook, TX"],
+  "areaServed": ["Fort Worth, TX"],
   "sameAs": ["https://instagram.com/snuggleandsnoutfw"]
 }
 </script>
@@ -34,6 +34,7 @@
   --line:2.5px solid var(--ink);--shadow:6px 6px 0 var(--ink);
 }
 *{box-sizing:border-box}
+[hidden]{display:none !important}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6}
@@ -147,6 +148,12 @@ textarea{resize:vertical;min-height:110px}
 .hp{position:absolute;left:-9999px}
 form .btn{justify-self:start;min-height:56px;font-size:1.1rem}
 
+.form-error{color:#B4123F;font-weight:700;font-size:1rem}
+.form-success{flex:1 1 460px;display:grid;gap:14px;justify-items:start;align-content:start;padding:36px;border-radius:32px;background:#fff;border:var(--line);box-shadow:8px 8px 0 var(--ink)}
+.form-success .icon-dot{width:56px;height:56px}
+.form-success p{color:var(--ink-soft)}
+button[disabled]{opacity:.6;cursor:wait}
+
 /* footer */
 footer{background:var(--ink);color:#fff;padding:44px 0}
 footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
@@ -182,7 +189,7 @@ footer a{color:#fff;font-weight:700}
     <div class="hero-copy">
       <span class="pill">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-        In-home pet sitting in Fort Worth &amp; Benbrook
+        In-home pet sitting in Fort Worth
       </span>
       <h1>They stay home.<br><span>You relax.</span></h1>
       <p class="hero-lede">Drop-in visits, dog walks, and overnight stays — so your pets keep their own bed, their own bowl, and their own routine while you're away.</p>
@@ -297,10 +304,10 @@ footer a{color:#fff;font-weight:700}
   <div class="wrap">
     <div class="area-band">
       <div>
-        <h2>Proudly serving Fort Worth &amp; Benbrook</h2>
+        <h2>Proudly serving Fort Worth</h2>
         <p>Not sure if you're in range? Just ask — I'm happy to check.</p>
       </div>
-      <div class="chips"><span>Benbrook</span><span>Fort Worth</span></div>
+      <div class="chips"><span>Fort Worth, Texas</span></div>
     </div>
   </div>
 </section>
@@ -317,8 +324,7 @@ footer a{color:#fff;font-weight:700}
       </a>
     </div>
 
-    <!-- FORM DELIVERY: replace YOUR_FORM_ID with your Formspree form ID before launch -->
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form id="request-form" action="https://formspree.io/f/xqpajvbz" method="POST">
       <input type="hidden" name="_subject" value="New visit request — Snuggle & Snout">
       <label class="hp" aria-hidden="true">Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
 
@@ -357,7 +363,13 @@ footer a{color:#fff;font-weight:700}
       <label>Tell me about your pets<textarea name="pet_details" placeholder="Names, ages, any special needs or quirks"></textarea></label>
       <label class="check"><input type="checkbox" name="vaccines_current" value="Yes" required><span>My pets are current on their rabies vaccine, and I'll send a copy of their records before our meet &amp; greet.</span></label>
       <button class="btn btn-pink" type="submit">Send my request</button>
+      <p id="form-error" class="form-error" role="alert" hidden>That didn't go through. Check your connection and try again, or message me on Instagram.</p>
     </form>
+    <div id="form-success" class="form-success" role="status" hidden>
+      <span class="icon-dot pink"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></span>
+      <h3>Request sent!</h3>
+      <p>Thanks — I'll reply within a day to confirm availability and set up your meet &amp; greet. Keep an eye on your email.</p>
+    </div>
   </div>
 </section>
 
@@ -367,7 +379,7 @@ footer a{color:#fff;font-weight:700}
   <div class="wrap">
     <div>
       <div class="foot-name">Snuggle &amp; Snout</div>
-      <small>In-home pet sitting in Fort Worth &amp; Benbrook</small>
+      <small>In-home pet sitting in Fort Worth</small>
     </div>
     <div style="text-align:right">
       <a href="https://instagram.com/snuggleandsnoutfw">@snuggleandsnoutfw</a>
@@ -376,5 +388,25 @@ footer a{color:#fff;font-weight:700}
   </div>
 </footer>
 
+<script>
+(function(){
+  var form=document.getElementById('request-form');
+  if(!form||!window.fetch)return;
+  var ok=document.getElementById('form-success'),err=document.getElementById('form-error');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=form.querySelector('button[type=submit]');
+    btn.disabled=true;btn.textContent='Sending…';err.hidden=true;
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(!r.ok)throw new Error('failed');
+        form.hidden=true;ok.hidden=false;ok.scrollIntoView({behavior:'smooth',block:'center'});
+      })
+      .catch(function(){
+        err.hidden=false;btn.disabled=false;btn.textContent='Send my request';
+      });
+  });
+})();
+</script>
 </body>
 </html>
