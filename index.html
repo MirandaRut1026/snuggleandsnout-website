@@ -134,15 +134,15 @@ p{margin:0}
 
 /* request form */
 .request .wrap{display:flex;flex-wrap:wrap;gap:56px}
-.request-intro{flex:1 1 320px;display:grid;gap:20px;align-content:start}
+.request-intro{flex:1 1 320px;display:flex;flex-direction:column;gap:20px}
 .request-intro p{color:var(--ink-soft)}
 .contact-line{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--ink);text-decoration:none;min-height:44px}
 .contact-line .icon-dot{background:var(--sun-pale)}
 .contact-links{display:grid;gap:8px}
-.good-to-know{margin-top:12px;display:grid;gap:14px;padding:28px;border-radius:28px;background:var(--sun-pale);border:var(--line);box-shadow:var(--shadow)}
-.good-to-know h3{display:flex;align-items:center;gap:10px;font-size:1.5rem}
-.good-to-know h3 svg{color:var(--pink)}
-.good-to-know p{font-size:1.05rem;color:var(--ink-soft)}
+.good-to-know{margin-top:auto;display:grid;justify-items:center;text-align:center;gap:12px;padding:28px;border-radius:28px;background:var(--sun-pale);border:var(--line);box-shadow:var(--shadow)}
+.good-to-know h3{display:grid;justify-items:center;gap:8px;font-size:1.6rem}
+.good-to-know h3 svg{width:40px;height:40px;color:var(--pink)}
+.good-to-know p{font-size:1.05rem;color:var(--ink-soft);max-width:400px}
 form{flex:1 1 460px;display:grid;gap:18px;padding:36px;border-radius:32px;background:#fff;border:var(--line);box-shadow:8px 8px 0 var(--ink)}
 .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
 label{display:grid;gap:6px;font-weight:800;font-size:.95rem}
