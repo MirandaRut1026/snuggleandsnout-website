@@ -139,9 +139,12 @@ p{margin:0}
 .contact-line{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--ink);text-decoration:none;min-height:44px}
 .contact-line .icon-dot{background:var(--sun-pale)}
 .contact-links{display:grid;gap:8px}
-.good-to-know{margin-top:auto;display:grid;justify-items:center;text-align:center;gap:12px;padding:28px;border-radius:28px;background:var(--sun-pale);border:var(--line);box-shadow:var(--shadow)}
-.good-to-know h3{display:grid;justify-items:center;gap:8px;font-size:1.6rem}
-.good-to-know h3 svg{width:40px;height:40px;color:var(--pink)}
+.good-to-know{margin-top:12px;flex:1;display:grid;align-content:center;justify-items:center;text-align:center;gap:12px;padding:28px;border-radius:28px;background:var(--sun-pale);border:var(--line);box-shadow:var(--shadow)}
+.good-to-know h3{font-size:1.6rem}
+.paw-row{display:flex;justify-content:center;gap:6px;margin-bottom:4px}
+.paw-row svg{width:44px;height:44px;color:var(--pink)}
+.paw-row svg:nth-child(even){color:var(--blue);transform:translateY(-8px) rotate(12deg)}
+.paw-row svg:nth-child(odd){transform:rotate(-12deg)}
 .good-to-know p{font-size:1.05rem;color:var(--ink-soft);max-width:400px}
 form{flex:1 1 460px;display:grid;gap:18px;padding:36px;border-radius:32px;background:#fff;border:var(--line);box-shadow:8px 8px 0 var(--ink)}
 .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
@@ -319,7 +322,8 @@ footer a{color:#fff;font-weight:700}
       </a>
       </div>
       <div class="good-to-know">
-        <h3><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.8" cy="10.4" r="1.7"/><circle cx="9.6" cy="6.9" r="1.7"/><circle cx="14.4" cy="6.9" r="1.7"/><circle cx="17.2" cy="10.4" r="1.7"/><path d="M12 11.2c-2.4 0-4.7 2.7-4.7 4.8 0 1.4 1.1 2.2 2.3 2.2.9 0 1.5-.5 2.4-.5s1.5.5 2.4.5c1.2 0 2.3-.8 2.3-2.2 0-2.1-2.3-4.8-4.7-4.8z"/></svg>Be our next Snout Spotlight!</h3>
+        <div class="paw-row" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.8" cy="10.4" r="1.7"/><circle cx="9.6" cy="6.9" r="1.7"/><circle cx="14.4" cy="6.9" r="1.7"/><circle cx="17.2" cy="10.4" r="1.7"/><path d="M12 11.2c-2.4 0-4.7 2.7-4.7 4.8 0 1.4 1.1 2.2 2.3 2.2.9 0 1.5-.5 2.4-.5s1.5.5 2.4.5c1.2 0 2.3-.8 2.3-2.2 0-2.1-2.3-4.8-4.7-4.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.8" cy="10.4" r="1.7"/><circle cx="9.6" cy="6.9" r="1.7"/><circle cx="14.4" cy="6.9" r="1.7"/><circle cx="17.2" cy="10.4" r="1.7"/><path d="M12 11.2c-2.4 0-4.7 2.7-4.7 4.8 0 1.4 1.1 2.2 2.3 2.2.9 0 1.5-.5 2.4-.5s1.5.5 2.4.5c1.2 0 2.3-.8 2.3-2.2 0-2.1-2.3-4.8-4.7-4.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.8" cy="10.4" r="1.7"/><circle cx="9.6" cy="6.9" r="1.7"/><circle cx="14.4" cy="6.9" r="1.7"/><circle cx="17.2" cy="10.4" r="1.7"/><path d="M12 11.2c-2.4 0-4.7 2.7-4.7 4.8 0 1.4 1.1 2.2 2.3 2.2.9 0 1.5-.5 2.4-.5s1.5.5 2.4.5c1.2 0 2.3-.8 2.3-2.2 0-2.1-2.3-4.8-4.7-4.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.8" cy="10.4" r="1.7"/><circle cx="9.6" cy="6.9" r="1.7"/><circle cx="14.4" cy="6.9" r="1.7"/><circle cx="17.2" cy="10.4" r="1.7"/><path d="M12 11.2c-2.4 0-4.7 2.7-4.7 4.8 0 1.4 1.1 2.2 2.3 2.2.9 0 1.5-.5 2.4-.5s1.5.5 2.4.5c1.2 0 2.3-.8 2.3-2.2 0-2.1-2.3-4.8-4.7-4.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.8" cy="10.4" r="1.7"/><circle cx="9.6" cy="6.9" r="1.7"/><circle cx="14.4" cy="6.9" r="1.7"/><circle cx="17.2" cy="10.4" r="1.7"/><path d="M12 11.2c-2.4 0-4.7 2.7-4.7 4.8 0 1.4 1.1 2.2 2.3 2.2.9 0 1.5-.5 2.4-.5s1.5.5 2.4.5c1.2 0 2.3-.8 2.3-2.2 0-2.1-2.3-4.8-4.7-4.8z"/></svg></div>
+        <h3>Be our next Snout Spotlight!</h3>
         <p>Every pet I care for is invited to be featured on my Snout Spotlight page — with your permission, of course. Just say yes when you sign up, and your furry friend could be our next star! ⭐</p>
       </div>
     </div>
