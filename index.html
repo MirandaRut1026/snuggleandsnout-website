@@ -348,7 +348,7 @@ footer a{color:#fff;font-weight:700}
         <label>Email<input type="email" name="email" autocomplete="email" required></label>
       </div>
       <div class="row">
-        <label><span>Phone <span class="opt" id="phone-note">(for texts)</span></span><input type="tel" name="phone" id="phone" autocomplete="tel" required></label>
+        <label>Phone<input type="tel" name="phone" id="phone" autocomplete="tel" required></label>
         <label>Service
           <select name="service" required>
             <option value="" disabled selected>Choose one</option>
@@ -418,11 +418,10 @@ footer a{color:#fff;font-weight:700}
   if(!form||!window.fetch)return;
   var ok=document.getElementById('form-success'),err=document.getElementById('form-error');
   // Phone is required when they'd like a text or a call; optional for email.
-  var phone=document.getElementById('phone'),note=document.getElementById('phone-note');
+  var phone=document.getElementById('phone');
   function syncPhone(){
     var pref=form.querySelector('input[name=preferred_contact]:checked').value;
     phone.required=pref!=='Email';
-    note.textContent=pref==='Text'?'(for texts)':pref==='Phone call'?'(for calls)':'(optional)';
   }
   form.querySelectorAll('input[name=preferred_contact]').forEach(function(r){r.addEventListener('change',syncPhone)});
   syncPhone();
