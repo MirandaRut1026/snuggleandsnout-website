@@ -95,7 +95,7 @@ p{margin:0}
 .icon-dot.pink{background:var(--pink);color:#fff}
 
 /* services */
-.services{background:var(--blue-wash)}
+.services{background:rgba(227,238,255,.82)}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px}
 .card{display:grid;gap:14px;align-content:start;padding:32px;border-radius:28px;background:#fff;border:var(--line);box-shadow:var(--shadow)}
 .card .icon-dot{width:60px;height:60px}
@@ -121,7 +121,7 @@ p{margin:0}
 .steps p{color:var(--ink-soft);max-width:300px}
 
 /* about */
-.about{background:var(--pink-wash)}
+.about{background:rgba(255,239,244,.82)}
 .about-card{max-width:780px;margin:0 auto;display:grid;gap:18px;padding:44px;border-radius:36px;background:#fff;border:var(--line);box-shadow:8px 8px 0 var(--ink)}
 .about-card p{color:var(--ink-soft)}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
@@ -157,6 +157,11 @@ form .btn{justify-self:start;min-height:56px;font-size:1.1rem}
 button[disabled]{opacity:.6;cursor:wait}
 
 /* footer */
+/* wandering pawprints */
+.paw-trail{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.paw-trail svg{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;opacity:0;animation:paw-step 3.6s ease-in-out forwards}
+@keyframes paw-step{0%{opacity:0;transform:var(--r) scale(.6)}12%{opacity:var(--o);transform:var(--r) scale(1)}60%{opacity:var(--o)}100%{opacity:0;transform:var(--r) scale(1)}}
+
 footer{background:var(--ink);color:#fff;padding:44px 0}
 footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
 footer small{display:block;color:#C9CDF0;font-size:.95rem}
@@ -166,6 +171,7 @@ footer a{color:#fff;font-weight:700}
 </style>
 </head>
 <body>
+<div class="paw-trail" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="wrap">
@@ -386,6 +392,46 @@ footer a{color:#fff;font-weight:700}
         err.hidden=false;btn.disabled=false;btn.textContent='Send my request';
       });
   });
+})();
+</script>
+<script>
+// Light pawprints that wander across the background, like a pet just walked by.
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var layer=document.querySelector('.paw-trail');if(!layer)return;
+  var NS='http://www.w3.org/2000/svg';
+  var PAW='<circle cx="6.8" cy="10.4" r="1.7"/><circle cx="9.6" cy="6.9" r="1.7"/><circle cx="14.4" cy="6.9" r="1.7"/><circle cx="17.2" cy="10.4" r="1.7"/><path d="M12 11.2c-2.4 0-4.7 2.7-4.7 4.8 0 1.4 1.1 2.2 2.3 2.2.9 0 1.5-.5 2.4-.5s1.5.5 2.4.5c1.2 0 2.3-.8 2.3-2.2 0-2.1-2.3-4.8-4.7-4.8z"/>';
+  var COLORS=[['#D42A63',.22],['#2563EB',.2],['#E9A800',.28]];
+  var active=0;
+  function print(x,y,deg,color){
+    var svg=document.createElementNS(NS,'svg');
+    svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('fill',color[0]);
+    svg.innerHTML=PAW;
+    svg.style.left=x+'px';svg.style.top=y+'px';
+    svg.style.setProperty('--r','rotate('+deg+'deg)');svg.style.setProperty('--o',color[1]);
+    svg.addEventListener('animationend',function(){svg.remove()});
+    layer.appendChild(svg);
+  }
+  function trail(){
+    if(document.hidden||active>=2)return;
+    var w=innerWidth,h=innerHeight;
+    // start just off one edge and head roughly across the screen
+    var a=Math.random()*Math.PI*2;
+    var cx=w/2-Math.cos(a)*(w/2+40)+(Math.random()-.5)*w*.5;
+    var cy=h/2-Math.sin(a)*(h/2+40)+(Math.random()-.5)*h*.5;
+    var dx=Math.cos(a),dy=Math.sin(a);
+    var deg=a*180/Math.PI+90;
+    var color=COLORS[Math.floor(Math.random()*COLORS.length)];
+    var steps=Math.ceil(Math.hypot(w,h)/54)+4,i=0;
+    active++;
+    (function step(){
+      if(i>=steps){active--;return}
+      var side=i%2?1:-1;
+      print(cx+dx*i*54-dy*side*15,cy+dy*i*54+dx*side*15,deg,color);
+      i++;setTimeout(step,280);
+    })();
+  }
+  trail();setInterval(trail,3500);
 })();
 </script>
 </body>
