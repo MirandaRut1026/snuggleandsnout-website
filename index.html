@@ -99,6 +99,8 @@ p{margin:0}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px}
 .card{display:grid;gap:14px;align-content:start;padding:32px;border-radius:28px;background:#fff;border:var(--line);box-shadow:var(--shadow)}
 .card .icon-dot{width:60px;height:60px}
+.card-head{display:flex;align-items:center;gap:16px}
+.card-head h3{margin:0}
 .price{font-family:var(--display);font-weight:600;font-size:1.4rem;color:var(--pink)}
 .price small{font-family:var(--body);font-size:1rem;color:var(--ink-soft);font-weight:600}
 .card p{color:var(--ink-soft)}
@@ -227,22 +229,19 @@ footer a{color:#fff;font-weight:700}
     </div>
     <div class="cards">
       <article class="card">
-        <span class="icon-dot" style="background:var(--pink-pale);color:var(--pink)"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>
-        <h3>Drop-in visits</h3>
+        <div class="card-head"><span class="icon-dot" style="background:var(--pink-pale);color:var(--pink)"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span><h3>Drop-in visits</h3></div>
         <p class="price">from $25 <small>/ 30-min visit</small></p>
         <p>A quick, loving check-in while you're at work or away — perfect for cats and easygoing pups.</p>
         <ul><li>Meals &amp; fresh water</li><li>Potty break or litter scoop</li><li>Playtime &amp; cuddles</li><li>Photo update every visit</li></ul>
       </article>
       <article class="card">
-        <span class="icon-dot" style="background:var(--sun-pale);color:var(--ink)"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg></span>
-        <h3>Dog walks</h3>
+        <div class="card-head"><span class="icon-dot" style="background:var(--sun-pale);color:var(--ink)"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></svg></span><h3>Dog walks</h3></div>
         <p class="price">from $25 <small>/ 30-min walk</small></p>
         <p>A happy neighborhood stroll to burn off energy and keep their routine right on track.</p>
         <ul><li>Leashed, one-on-one walks</li><li>Fresh water when we're back</li><li>Paws wiped before coming inside</li><li>Photo update every walk</li></ul>
       </article>
       <article class="card">
-        <span class="icon-dot" style="background:var(--blue-pale);color:var(--blue)"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span>
-        <h3>Overnight stays</h3>
+        <div class="card-head"><span class="icon-dot" style="background:var(--blue-pale);color:var(--blue)"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span><h3>Overnight stays</h3></div>
         <p class="price">from $85 <small>/ night</small></p>
         <p>I stay the night in your home, so your pets are never alone and your house looks lived-in.</p>
         <ul><li>Evening &amp; morning care</li><li>Bedtime snuggles included</li><li>Your home stays occupied</li><li>Good-morning photo update</li></ul>
