@@ -147,6 +147,15 @@ p{margin:0}
 .paw-row svg:nth-child(odd){transform:rotate(-12deg)}
 .good-to-know p{font-size:1.05rem;color:var(--ink-soft);max-width:400px}
 form{flex:1 1 460px;display:grid;gap:18px;padding:36px;border-radius:32px;background:#fff;border:var(--line);box-shadow:8px 8px 0 var(--ink)}
+.contact-pref{border:0;margin:0;padding:0;display:grid;gap:8px}
+.contact-pref legend{padding:0;margin-bottom:8px;font-weight:800;font-size:.95rem}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pills label{display:block;cursor:pointer}
+.pills input{position:absolute;opacity:0;width:1px;height:1px}
+.pills span{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;border:2px solid var(--ink);background:var(--ground);font-weight:800;font-size:1rem}
+.pills input:checked+span{background:var(--pink);border-color:var(--pink);color:#fff}
+.pills input:focus-visible+span{outline:3px solid var(--blue);outline-offset:3px}
+@media (max-width:420px){.pills{gap:8px;flex-wrap:nowrap}.pills label{flex:1}.pills span{width:100%;justify-content:center;padding:0 6px;font-size:.95rem}}
 .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
 label{display:grid;gap:6px;font-weight:800;font-size:.95rem}
 label .opt{font-weight:600;color:var(--ink-soft)}
@@ -339,7 +348,7 @@ footer a{color:#fff;font-weight:700}
         <label>Email<input type="email" name="email" autocomplete="email" required></label>
       </div>
       <div class="row">
-        <label><span>Phone <span class="opt">(optional)</span></span><input type="tel" name="phone" autocomplete="tel"></label>
+        <label><span>Phone <span class="opt" id="phone-note">(for texts)</span></span><input type="tel" name="phone" id="phone" autocomplete="tel" required></label>
         <label>Service
           <select name="service" required>
             <option value="" disabled selected>Choose one</option>
@@ -350,6 +359,14 @@ footer a{color:#fff;font-weight:700}
           </select>
         </label>
       </div>
+      <fieldset class="contact-pref">
+        <legend>Best way to reach you</legend>
+        <div class="pills">
+          <label><input type="radio" name="preferred_contact" value="Text" checked><span>💬 Text</span></label>
+          <label><input type="radio" name="preferred_contact" value="Phone call"><span>📞 Call</span></label>
+          <label><input type="radio" name="preferred_contact" value="Email"><span>✉️ Email</span></label>
+        </div>
+      </fieldset>
       <div class="row">
         <label>First day<input type="date" name="start_date" required></label>
         <label>Last day<input type="date" name="end_date" required></label>
@@ -400,6 +417,15 @@ footer a{color:#fff;font-weight:700}
   var form=document.getElementById('request-form');
   if(!form||!window.fetch)return;
   var ok=document.getElementById('form-success'),err=document.getElementById('form-error');
+  // Phone is required when they'd like a text or a call; optional for email.
+  var phone=document.getElementById('phone'),note=document.getElementById('phone-note');
+  function syncPhone(){
+    var pref=form.querySelector('input[name=preferred_contact]:checked').value;
+    phone.required=pref!=='Email';
+    note.textContent=pref==='Text'?'(for texts)':pref==='Phone call'?'(for calls)':'(optional)';
+  }
+  form.querySelectorAll('input[name=preferred_contact]').forEach(function(r){r.addEventListener('change',syncPhone)});
+  syncPhone();
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var btn=form.querySelector('button[type=submit]');
