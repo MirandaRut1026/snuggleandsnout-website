@@ -139,6 +139,13 @@ p{margin:0}
 .contact-line{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--ink);text-decoration:none;min-height:44px}
 .contact-line .icon-dot{background:var(--sun-pale)}
 .contact-links{display:grid;gap:8px}
+.good-to-know{margin-top:12px;display:grid;gap:14px;padding:28px;border-radius:28px;background:var(--sun-pale);border:var(--line);box-shadow:var(--shadow)}
+.good-to-know h3{display:flex;align-items:center;gap:10px;font-size:1.5rem}
+.good-to-know h3 svg{color:var(--pink)}
+.good-to-know ul{margin:0;padding:0;list-style:none;display:grid;gap:12px;font-size:1rem;color:var(--ink-soft)}
+.good-to-know li{padding-left:22px;position:relative}
+.good-to-know li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--pink)}
+.good-to-know strong{color:var(--ink)}
 form{flex:1 1 460px;display:grid;gap:18px;padding:36px;border-radius:32px;background:#fff;border:var(--line);box-shadow:8px 8px 0 var(--ink)}
 .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
 label{display:grid;gap:6px;font-weight:800;font-size:.95rem}
@@ -313,6 +320,15 @@ footer a{color:#fff;font-weight:700}
         <span class="icon-dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg></span>
         hello@snuggleandsnout.com
       </a>
+      </div>
+      <div class="good-to-know">
+        <h3><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.8" cy="10.4" r="1.7"/><circle cx="9.6" cy="6.9" r="1.7"/><circle cx="14.4" cy="6.9" r="1.7"/><circle cx="17.2" cy="10.4" r="1.7"/><path d="M12 11.2c-2.4 0-4.7 2.7-4.7 4.8 0 1.4 1.1 2.2 2.3 2.2.9 0 1.5-.5 2.4-.5s1.5.5 2.4.5c1.2 0 2.3-.8 2.3-2.2 0-2.1-2.3-4.8-4.7-4.8z"/></svg>Good to know</h3>
+        <ul>
+          <li><strong>Meet &amp; greet first.</strong> We'll meet before your first booking so I can learn your pets' routines and pick up the key.</li>
+          <li><strong>Rabies records, please.</strong> All pets need to be current on their rabies vaccine.</li>
+          <li><strong>Pricing.</strong> Prices are for one pet. Extra pets and holiday dates may cost a little more.</li>
+          <li><strong>Photo updates.</strong> You'll get a photo after every visit, so you always know how they're doing.</li>
+        </ul>
       </div>
     </div>
 
